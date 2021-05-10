@@ -5,14 +5,14 @@ import DataProvider from './components/DataProvider';
 
 const App = () => {
     return (
-      <DataProvider>
-        <div className="App">
-            <h1>To do list</h1>
-            <FormInput />
-            <List />
-            <Footer />
-        </div>
-      </DataProvider>
+        <DataProvider>
+            <div className="App">
+                <h1>To do list</h1>
+                <FormInput />
+                <List />
+                <Footer />
+            </div>
+        </DataProvider>
     );
 };
 
