@@ -101,6 +101,11 @@ label {
     cursor: pointer;
 }
 
+h2 {
+    text-align: center;
+    color: green;
+}
+
 @media (max-width: 400px) {
     .App {
         padding: 12px;

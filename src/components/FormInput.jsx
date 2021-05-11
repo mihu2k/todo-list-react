@@ -1,15 +1,22 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect, useRef } from 'react';
 import { DataContext } from './DataProvider';
 
 const FormInput = () => {
     const [todos, setTodos] = useContext(DataContext);
     const  [todoName, setTodoName] = useState('');
+    const todoInput = useRef();
 
     const addTodo = e => {
         e.preventDefault();
         setTodos([...todos, { name: todoName, complete: false }]);
         setTodoName('');
+        todoInput.current.focus();
     }
+
+    useEffect(() => {
+        // console.log(todoInput);
+        todoInput.current.focus();
+    }, []);
 
     return (
         <form autoComplete="off" onSubmit={addTodo}>
@@ -20,7 +27,8 @@ const FormInput = () => {
                 placeholder="What needs to be done?"
                 required
                 value={todoName}
-                onChange={e => setTodoName(e.target.value.toLowerCase())}
+                ref={todoInput}
+                onChange={e => setTodoName(e.target.value)}
             />
             <button type="submit">Create</button>
         </form>
